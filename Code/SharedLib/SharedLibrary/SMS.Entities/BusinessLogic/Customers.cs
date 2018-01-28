@@ -54,5 +54,12 @@ namespace SMS.Entities.BusinessLogic
 
             return result;
         }
+
+        public OperationResult<List<Customer>> FindAllCustomers()
+        {
+            var list = this.dataStore.FindAllCustomers();
+            return new OperationResult<List<Customer>>() { IsSuccess = true, Result = list };
+
+        }
     }
 }

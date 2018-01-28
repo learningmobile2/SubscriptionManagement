@@ -3,8 +3,9 @@
     public enum DBType
     {
         None,
-        Full,
-        MobileCache
+        Server,
+        MobileCache,
+        Online
     }
 
     public enum OperationErrorCode

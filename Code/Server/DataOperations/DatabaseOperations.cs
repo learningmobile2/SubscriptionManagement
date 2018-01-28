@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -72,8 +73,32 @@ namespace DataOperations
 
         public List<Customer> FindAllCustomers()
         {
-            throw new NotImplementedException();
+            string query = "SELECT ID,ALIAS,FIRSTNAME, LASTNAME FROM CUSTOMER";
+            List<Customer> customers = new List<Customer>();
+            using (SQLiteConnection dataConnection = SqliteDBHelper.GetConnection(this.databasePath))
+            {
+                using (SQLiteCommand dataCommand = dataConnection.CreateCommand())
+                {
+                    var result = SqliteDBHelper.GetResult(dataCommand, query);
+                    foreach (DataRow dataRow in result.Tables[0].Rows)
+                    {
+                        customers.Add(new Customer()
+                        {
+                            Id = Convert.ToInt32(dataRow["Id"]),
+                            Alias = dataRow.GetString("Alias"),
+                            FirstName = dataRow.GetString("FirstName")
+                        }
+                      );
+                    }
+                }
+                dataConnection.Close();
+            }
+
+            return customers;
         }
+
+
+
 
         public List<Customer> FindAllCustomers(string alias)
         {

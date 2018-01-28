@@ -8,7 +8,7 @@ using System.Data;
 
 namespace DataOperations
 {
-    internal class SqliteDBHelper
+    public static class SqliteDBHelper
     {
        internal static SQLiteCommand GetCommand(string databasePath)
         {
@@ -43,6 +43,16 @@ namespace DataOperations
             SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(command);
             dataAdapter.Fill(dataSet);
             return dataSet;
+        }
+
+        public static string GetString(this DataRow dataRow, string columnName, string defaultValue = "")
+        {
+            return dataRow[columnName] == DBNull.Value ? defaultValue : Convert.ToString(dataRow[columnName]);
+        }
+
+        public static int GetInt32(this DataRow dataRow, string columnName, int defaultValue = 0)
+        {
+            return dataRow[columnName] == DBNull.Value ? defaultValue : Convert.ToInt32(dataRow[columnName]);
         }
     }
 }

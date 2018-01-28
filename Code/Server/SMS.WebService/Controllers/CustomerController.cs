@@ -19,16 +19,16 @@ namespace SMS.WebService.Controllers
             {
                 if (customerModel == null)
                 {
-                    customerModel = new Customers(new DatabaseOperations(@"C:\RND\SubscriptionManagement\Code\Server\DataOperations\smsmain.sqllite3.db", Entities.DataInterface.DBType.Full));
+                    customerModel = new Customers(new DatabaseOperations(@"C:\RND\SubscriptionManagement\Code\Server\DataOperations\smsmain.sqllite3.db", Entities.DataInterface.DBType.Server));
                 }
 
                 return this.customerModel;
             }
         }
         // GET: api/Customer
-        public IEnumerable<string> Get()
+        public IEnumerable<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return this.CustomerModel.FindAllCustomers().Result;
         }
 
         // GET: api/Customer/5
