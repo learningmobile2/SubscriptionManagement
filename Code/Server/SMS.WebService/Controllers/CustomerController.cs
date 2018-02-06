@@ -19,7 +19,7 @@ namespace SMS.WebService.Controllers
             {
                 if (customerModel == null)
                 {
-                    customerModel = new Customers(new DatabaseOperations(@"C:\RND\SubscriptionManagement\Code\Server\DataOperations\smsmain.sqllite3.db", Entities.DataInterface.DBType.Server));
+                    customerModel = new Customers(new DatabaseOperations(@"..\..\DataOperations\smsmain.sqllite3.db", Entities.DataInterface.DBType.Server));
                 }
 
                 return this.customerModel;

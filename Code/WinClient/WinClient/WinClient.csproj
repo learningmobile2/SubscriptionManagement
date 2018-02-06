@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,8 +115,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SharedLib\SharedLibrary\SMS.Entities\SMS.Entities.csproj">
-      <Project>{572F46E4-2E06-4BC4-9314-4F411FC609C6}</Project>
+    <ProjectReference Include="..\..\SharedLib\SMS.Entities\SMS.Entities.csproj">
+      <Project>{b264495c-826b-483e-8437-c6a6f77e5326}</Project>
       <Name>SMS.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Winclient.Models\Winclient.Models.csproj">
